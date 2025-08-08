@@ -15,10 +15,10 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4">
-        <div className="relative flex items-center justify-center h-16">
+        <div className="flex items-center justify-between h-16">
 
           {/* Left - ELCOM DAIS logo */}
-          <div className="absolute left-4 flex items-center space-x-3">
+          <div className="flex items-center space-x-3">
             <img
               src="/assets/logos/elcom-dais-logo.png"
               alt="ELCOM DAIS Logo"
@@ -28,7 +28,7 @@ const Navigation = () => {
           </div>
 
           {/* Center - SASTRA logo */}
-          <div className="mx-auto">
+          <div className="flex-1 flex justify-center">
             <img
               src="/assets/logos/sastra-university-logo.png"
               alt="SASTRA University Logo"
@@ -36,8 +36,8 @@ const Navigation = () => {
             />
           </div>
 
-          {/* Right - Desktop nav & Mobile menu */}
-          <div className="absolute right-4 flex items-center space-x-4">
+          {/* Right - Desktop nav & mobile toggle */}
+          <div className="flex items-center space-x-4">
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
               {navItems.map((item) => (
