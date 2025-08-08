@@ -22,11 +22,6 @@ const HeroSection = () => {
             />
           </div>
 
-          {/* Subtitle (optional) */}
-          <p className="text-lg text-muted-foreground mb-12 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-            SASTRA University
-          </p>
-
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-slide-up" style={{ animationDelay: '0.4s' }}>
             <Button 
