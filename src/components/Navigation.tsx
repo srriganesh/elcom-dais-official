@@ -1,4 +1,3 @@
-// ✅ All imports must be at the top
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -16,9 +15,9 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="relative flex items-center justify-between h-20">
           {/* Left - ELCOM DAIS logo */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3 z-10">
             <img
               src="/assets/logos/elcom-dais-logo.png"
               alt="ELCOM DAIS Logo"
@@ -27,17 +26,17 @@ const Navigation = () => {
             <span className="text-xl font-bold text-glow">ELCOM DAIS</span>
           </div>
 
-          {/* Center - SASTRA logo (larger) */}
-          <div className="flex-1 flex justify-center">
+          {/* Center - SASTRA logo */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 flex justify-center">
             <img
               src="/assets/logos/sastra-university-logo.png"
               alt="SASTRA University Logo"
-              className="w-24 h-24 object-contain filter brightness-0 invert"
+              className="w-28 h-28 object-contain filter brightness-0 invert"
             />
           </div>
 
           {/* Right - Desktop nav & mobile toggle */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 z-10">
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
               {navItems.map((item) => (
