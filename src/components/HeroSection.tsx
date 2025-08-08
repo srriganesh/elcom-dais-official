@@ -22,7 +22,6 @@ const HeroSection = () => {
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 animate-slide-up">
-            Electronics Engineering Excellence
           </p>
 
           {/* University */}
