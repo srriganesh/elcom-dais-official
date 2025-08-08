@@ -37,7 +37,7 @@ const Navigation = () => {
               <img
                 src="/assets/logos/sastra-university-logo.png"
                 alt="SASTRA University Logo"
-                className="w-24 h-24 object-contain filter brightness-0 invert"
+                className="w-48 h-24 object-contain filter brightness-0 invert"
               />
             </a>
           </div>
