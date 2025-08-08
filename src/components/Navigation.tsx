@@ -24,6 +24,11 @@ const Navigation = () => {
               className="w-10 h-10 object-contain filter brightness-0 invert"
             />
             <span className="text-xl font-bold text-glow">ELCOM DAIS</span>
+            <img 
+              src="/assets/logos/sastra-university-logo.png" 
+              alt="SASTRA University Logo"
+              className="w-10 h-10 object-contain filter brightness-0 invert ml-4"
+            />
           </div>
 
           {/* Desktop Navigation */}
