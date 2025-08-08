@@ -26,14 +26,22 @@ const Navigation = () => {
             <span className="text-xl font-bold text-glow">ELCOM DAIS</span>
           </div>
 
-          {/* Center - SASTRA logo */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 flex justify-center">
-            <img
-              src="/assets/logos/sastra-university-logo.png"
-              alt="SASTRA University Logo"
-              className="w-58 h-20 object-contain filter brightness-0 invert"
-            />
+          {/* Center - SASTRA logo as a clickable button */}
+          <div className="flex-1 flex justify-center">
+            <a
+              href="https://www.sastra.edu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-transform hover:scale-105"
+            >
+              <img
+                src="/assets/logos/sastra-university-logo.png"
+                alt="SASTRA University Logo"
+                className="w-24 h-24 object-contain filter brightness-0 invert"
+              />
+            </a>
           </div>
+
 
           {/* Right - Desktop nav & mobile toggle */}
           <div className="flex items-center space-x-4 z-10">
