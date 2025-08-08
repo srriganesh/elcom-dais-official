@@ -18,9 +18,11 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center glow-primary">
-              <span className="text-primary-foreground font-bold text-lg">ED</span>
-            </div>
+            <img 
+              src="/assets/logos/elcom-dais-logo.png" 
+              alt="ELCOM DAIS Logo"
+              className="w-10 h-10 object-contain filter brightness-0 invert"
+            />
             <span className="text-xl font-bold text-glow">ELCOM DAIS</span>
           </div>
 

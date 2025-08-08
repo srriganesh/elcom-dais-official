@@ -6,9 +6,11 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="text-center space-y-4">
           <div className="flex items-center justify-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center glow-primary">
-              <span className="text-primary-foreground font-bold text-sm">ED</span>
-            </div>
+            <img 
+              src="/assets/logos/elcom-dais-logo.png" 
+              alt="ELCOM DAIS Logo"
+              className="w-8 h-8 object-contain filter brightness-0 invert"
+            />
             <span className="text-lg font-bold text-glow">ELCOM DAIS</span>
           </div>
           
