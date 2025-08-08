@@ -30,24 +30,13 @@ const HeroSection = () => {
             SASTRA University
           </p>
 
-          {/* Tech Icons */}
-          <div className="flex justify-center space-x-8 mb-12 animate-slide-up" style={{ animationDelay: '0.4s' }}>
-            <div className="p-4 border border-border rounded-lg cyber-border hover:glow-primary transition-all duration-300">
-              <Zap className="w-8 h-8 text-primary" />
-            </div>
-            <div className="p-4 border border-border rounded-lg cyber-border hover:glow-primary transition-all duration-300">
-              <Cpu className="w-8 h-8 text-secondary" />
-            </div>
-            <div className="p-4 border border-border rounded-lg cyber-border hover:glow-primary transition-all duration-300">
-              <CircuitBoard className="w-8 h-8 text-accent" />
-            </div>
-          </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-slide-up" style={{ animationDelay: '0.6s' }}>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-slide-up" style={{ animationDelay: '0.4s' }}>
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-primary to-secondary hover:from-primary/80 hover:to-secondary/80 text-primary-foreground glow-primary transition-all duration-300"
+              onClick={() => document.getElementById('events')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Explore Events
             </Button>
@@ -55,6 +44,7 @@ const HeroSection = () => {
               variant="outline" 
               size="lg"
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Learn More
             </Button>

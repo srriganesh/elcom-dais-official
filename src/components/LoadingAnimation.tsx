@@ -10,9 +10,9 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
   useEffect(() => {
     const timers = [
       setTimeout(() => setCurrentStep(1), 500),    // SASTRA logo
-      setTimeout(() => setCurrentStep(2), 1500),   // ELCOM DAIS logo
-      setTimeout(() => setCurrentStep(3), 2500),   // Innovate logo
-      setTimeout(() => onComplete(), 4000),        // Complete animation
+      setTimeout(() => setCurrentStep(2), 3500),   // ELCOM DAIS logo  
+      setTimeout(() => setCurrentStep(3), 6500),   // Innovate logo
+      setTimeout(() => onComplete(), 9500),        // Complete animation
     ];
 
     return () => timers.forEach(clearTimeout);
@@ -28,7 +28,7 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
       <div className="relative flex flex-col items-center space-y-12">
         {/* SASTRA University Logo */}
         <div className={`transition-all duration-1000 transform ${
-          currentStep >= 1 
+          currentStep === 1 
             ? 'opacity-100 scale-100 translate-y-0' 
             : 'opacity-0 scale-75 translate-y-8'
         }`}>
@@ -36,18 +36,18 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
             <img 
               src="/assets/logos/sastra-university-logo.png" 
               alt="SASTRA University"
-              className="w-32 h-32 object-contain filter brightness-0 invert glow-primary"
+              className="w-48 h-48 object-contain filter brightness-0 invert glow-primary"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-xl animate-pulse"></div>
           </div>
-          <p className="text-center mt-4 text-primary font-bold text-xl tracking-wider animate-fade-in">
+          <p className="text-center mt-6 text-primary font-bold text-2xl tracking-wider animate-fade-in">
             SASTRA UNIVERSITY
           </p>
         </div>
 
         {/* ELCOM DAIS Logo */}
-        <div className={`transition-all duration-1000 delay-200 transform ${
-          currentStep >= 2 
+        <div className={`transition-all duration-1000 transform ${
+          currentStep === 2 
             ? 'opacity-100 scale-100 translate-y-0' 
             : 'opacity-0 scale-75 translate-y-8'
         }`}>
@@ -55,18 +55,18 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
             <img 
               src="/assets/logos/elcom-dais-logo.png" 
               alt="ELCOM DAIS"
-              className="w-40 h-40 object-contain filter brightness-0 invert glow-secondary"
+              className="w-56 h-56 object-contain filter brightness-0 invert glow-secondary"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-secondary/20 to-accent/20 rounded-full blur-xl animate-pulse"></div>
           </div>
-          <p className="text-center mt-4 text-secondary font-bold text-2xl tracking-wider animate-fade-in">
+          <p className="text-center mt-6 text-secondary font-bold text-3xl tracking-wider animate-fade-in">
             ELCOM DAIS
           </p>
         </div>
 
         {/* Innovate Logo */}
-        <div className={`transition-all duration-1000 delay-400 transform ${
-          currentStep >= 3 
+        <div className={`transition-all duration-1000 transform ${
+          currentStep === 3 
             ? 'opacity-100 scale-100 translate-y-0' 
             : 'opacity-0 scale-75 translate-y-8'
         }`}>
@@ -74,11 +74,11 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
             <img 
               src="/assets/logos/innovate.png" 
               alt="Innovate"
-              className="w-36 h-36 object-contain filter brightness-0 invert glow-accent"
+              className="w-52 h-52 object-contain filter brightness-0 invert glow-accent"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-primary/20 rounded-full blur-xl animate-pulse"></div>
           </div>
-          <p className="text-center mt-4 text-accent font-bold text-xl tracking-wider animate-fade-in">
+          <p className="text-center mt-6 text-accent font-bold text-2xl tracking-wider animate-fade-in">
             INNOVATE
           </p>
         </div>
