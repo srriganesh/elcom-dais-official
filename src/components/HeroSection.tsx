@@ -18,7 +18,7 @@ const HeroSection = () => {
             <img
               src="/assets/logos/elcom-dais-logo.png"
               alt="ELCOM DAIS Logo"
-              className="w-48 h-50 object-contain filter brightness-0 invert"
+              className="w-68 h-68 object-contain filter brightness-0 invert"
             />
           </div>
 
