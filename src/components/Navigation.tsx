@@ -15,47 +15,53 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo - Centered with larger SASTRA logo */}
-          <div className="flex items-center justify-center space-x-6 flex-1">
-            <img 
-              src="/assets/logos/sastra-university-logo.png" 
+        <div className="relative flex items-center justify-center h-16">
+
+          {/* Left - ELCOM DAIS logo */}
+          <div className="absolute left-4 flex items-center space-x-3">
+            <img
+              src="/assets/logos/elcom-dais-logo.png"
+              alt="ELCOM DAIS Logo"
+              className="w-10 h-10 object-contain filter brightness-0 invert"
+            />
+            <span className="text-xl font-bold text-glow">ELCOM DAIS</span>
+          </div>
+
+          {/* Center - SASTRA logo */}
+          <div className="mx-auto">
+            <img
+              src="/assets/logos/sastra-university-logo.png"
               alt="SASTRA University Logo"
               className="w-16 h-16 object-contain filter brightness-0 invert"
             />
-            <div className="flex items-center space-x-3">
-              <img 
-                src="/assets/logos/elcom-dais-logo.png" 
-                alt="ELCOM DAIS Logo"
-                className="w-10 h-10 object-contain filter brightness-0 invert"
-              />
-              <span className="text-xl font-bold text-glow">ELCOM DAIS</span>
+          </div>
+
+          {/* Right - Desktop nav & Mobile menu */}
+          <div className="absolute right-4 flex items-center space-x-4">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex space-x-8">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-muted-foreground hover:text-primary transition-colors duration-300 relative group"
+                >
+                  {item.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              ))}
             </div>
-          </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 relative group"
-              >
-                {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            ))}
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="md:hidden"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="md:hidden"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
         </div>
 
         {/* Mobile Navigation */}
