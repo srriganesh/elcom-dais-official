@@ -5,72 +5,107 @@ interface LoadingAnimationProps {
 }
 
 const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(0); // 0: none, 1: SASTRA, 2: ELCOM, 3: INNOVATE
+  const [fadeState, setFadeState] = useState<'in' | 'out'>('in');
 
   useEffect(() => {
-    const timers = [
-      setTimeout(() => setCurrentStep(1), 500),
-      setTimeout(() => setCurrentStep(2), 3500),
-      setTimeout(() => setCurrentStep(3), 6500),
-      setTimeout(() => onComplete(), 9500),
+    setCurrentStep(1);
+
+    const fadeTimings = [
+      { step: 1, duration: 2500 },
+      { step: 2, duration: 2500 },
+      { step: 3, duration: 2500 },
     ];
+
+    let totalTime = 0;
+
+    const timers: NodeJS.Timeout[] = [];
+
+    fadeTimings.forEach(({ step, duration }, index) => {
+      const fadeInTime = totalTime + 0;
+      const fadeOutTime = totalTime + duration;
+
+      timers.push(setTimeout(() => {
+        setFadeState('in');
+        setCurrentStep(step);
+      }, fadeInTime));
+
+      timers.push(setTimeout(() => {
+        setFadeState('out');
+      }, fadeOutTime - 500)); // fade out starts 500ms before step ends
+
+      totalTime += duration;
+    });
+
+    // Complete animation after final logo
+    timers.push(setTimeout(() => {
+      onComplete();
+    }, totalTime));
 
     return () => timers.forEach(clearTimeout);
   }, [onComplete]);
 
+  const logoData = [
+    {
+      step: 1,
+      imgSrc: "/assets/logos/sastra-university-logo.png",
+      alt: "SASTRA University",
+      text: "SASTRA UNIVERSITY",
+      textClass: "text-primary",
+      glowClass: "glow-primary",
+      bgGlow: "from-primary/20 to-secondary/20",
+    },
+    {
+      step: 2,
+      imgSrc: "/assets/logos/elcom-dais-logo.png",
+      alt: "ELCOM DAIS",
+      text: "ELCOM DAIS",
+      textClass: "text-secondary",
+      glowClass: "glow-secondary",
+      bgGlow: "from-secondary/20 to-accent/20",
+    },
+    {
+      step: 3,
+      imgSrc: "/assets/logos/innovate.png",
+      alt: "Innovate",
+      text: "INNOVATE",
+      textClass: "text-accent",
+      glowClass: "glow-accent",
+      bgGlow: "from-accent/20 to-primary/20",
+    },
+  ];
+
+  const activeLogo = logoData.find((logo) => logo.step === currentStep);
+
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-background via-background/95 to-background flex items-center justify-center z-50">
-      {/* Animated background grid */}
+      {/* Background grid */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-[size:50px_50px] animate-pulse"></div>
       </div>
 
-      {/* Centered logo */}
+      {/* Logo animation */}
       <div className="relative w-full h-full flex items-center justify-center">
-        {currentStep === 1 && (
-          <div className="flex flex-col items-center transition-all duration-1000 transform opacity-100 scale-100 translate-y-0">
+        {activeLogo && (
+          <div
+            className={`
+              flex flex-col items-center transition-opacity duration-1000
+              ${fadeState === 'in' ? 'opacity-100' : 'opacity-0'}
+              absolute
+            `}
+          >
             <div className="relative">
               <img
-                src="/assets/logos/sastra-university-logo.png"
-                alt="SASTRA University"
-                className="w-48 h-48 object-contain filter brightness-0 invert glow-primary"
+                src={activeLogo.imgSrc}
+                alt={activeLogo.alt}
+                className={`w-52 h-52 object-contain filter brightness-0 invert ${activeLogo.glowClass}`}
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-xl animate-pulse"></div>
+              <div className={`absolute inset-0 bg-gradient-to-r ${activeLogo.bgGlow} rounded-full blur-xl animate-pulse`}></div>
             </div>
-            <p className="text-center mt-6 text-primary font-bold text-2xl tracking-wider animate-fade-in">
-              SASTRA UNIVERSITY
-            </p>
-          </div>
-        )}
-
-        {currentStep === 2 && (
-          <div className="flex flex-col items-center transition-all duration-1000 transform opacity-100 scale-100 translate-y-0">
-            <div className="relative">
-              <img
-                src="/assets/logos/elcom-dais-logo.png"
-                alt="ELCOM DAIS"
-                className="w-56 h-56 object-contain filter brightness-0 invert glow-secondary"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-secondary/20 to-accent/20 rounded-full blur-xl animate-pulse"></div>
-            </div>
-            <p className="text-center mt-6 text-secondary font-bold text-3xl tracking-wider animate-fade-in">
-              ELCOM DAIS
-            </p>
-          </div>
-        )}
-
-        {currentStep === 3 && (
-          <div className="flex flex-col items-center transition-all duration-1000 transform opacity-100 scale-100 translate-y-0">
-            <div className="relative">
-              <img
-                src="/assets/logos/innovate.png"
-                alt="Innovate"
-                className="w-52 h-52 object-contain filter brightness-0 invert glow-accent"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-primary/20 rounded-full blur-xl animate-pulse"></div>
-            </div>
-            <p className="text-center mt-6 text-accent font-bold text-2xl tracking-wider animate-fade-in">
-              INNOVATE
+            <p
+              className={`text-center mt-6 ${activeLogo.textClass} font-bold text-2xl tracking-wider animate-fade-in`}
+            >
+              {activeLogo.text}
             </p>
           </div>
         )}
