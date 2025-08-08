@@ -18,10 +18,11 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
     ];
 
     let totalTime = 0;
+
     const timers: NodeJS.Timeout[] = [];
 
-    fadeTimings.forEach(({ step, duration }, index) => {
-      const fadeInTime = totalTime;
+    fadeTimings.forEach(({ step, duration }) => {
+      const fadeInTime = totalTime + 0;
       const fadeOutTime = totalTime + duration;
 
       timers.push(setTimeout(() => {
@@ -52,7 +53,6 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
       textClass: "text-primary",
       glowClass: "glow-primary",
       bgGlow: "from-primary/20 to-secondary/20",
-      link: "https://www.sastra.edu", // Only SASTRA has a link
     },
     {
       step: 2,
@@ -78,54 +78,29 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
 
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-background via-background/95 to-background flex items-center justify-center z-50">
-      {/* Background grid */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-[size:50px_50px] animate-pulse"></div>
       </div>
 
-      {/* Logo animation */}
       <div className="relative w-full h-full flex items-center justify-center">
         {activeLogo && (
           <div
-            className={`flex flex-col items-center transition-opacity duration-1000 ${
-              fadeState === "in" ? "opacity-100" : "opacity-0"
-            } absolute`}
+            className={`flex flex-col items-center transition-opacity duration-1000 ${fadeState === 'in' ? 'opacity-100' : 'opacity-0'} absolute`}
           >
             <div className="relative">
-              {activeLogo.link ? (
-                <a href={activeLogo.link} target="_blank" rel="noopener noreferrer">
-                  <img
-                    src={activeLogo.imgSrc}
-                    alt={activeLogo.alt}
-                    className={`w-64 h-64 object-contain filter brightness-0 invert ${activeLogo.glowClass}`}
-                  />
-                </a>
-              ) : (
-                <img
-                  src={activeLogo.imgSrc}
-                  alt={activeLogo.alt}
-                  className={`w-60 h-60 object-contain filter brightness-0 invert ${activeLogo.glowClass}`}
-                />
-              )}
-              <div
-                className={`absolute inset-0 bg-gradient-to-r ${activeLogo.bgGlow} rounded-full blur-xl animate-pulse`}
-              ></div>
+              <img
+                src={activeLogo.imgSrc}
+                alt={activeLogo.alt}
+                className={`w-52 h-52 object-contain filter brightness-0 invert ${activeLogo.glowClass}`}
+              />
+              <div className={`absolute inset-0 bg-gradient-to-r ${activeLogo.bgGlow} rounded-full blur-xl animate-pulse`}></div>
             </div>
-            <p
-              className={`text-center mt-6 ${activeLogo.textClass} font-bold text-2xl tracking-wider animate-fade-in`}
-            >
-              {activeLogo.text}
-            </p>
+            {/* Subtitle removed */}
           </div>
         )}
       </div>
 
-      {/* Loading indicator */}
-      <div
-        className={`absolute bottom-12 transition-all duration-500 ${
-          currentStep >= 3 ? "opacity-100" : "opacity-0"
-        }`}
-      >
+      <div className={`absolute bottom-12 transition-all duration-500 ${currentStep >= 3 ? "opacity-100" : "opacity-0"}`}>
         <div className="flex space-x-2 justify-center">
           <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
           <div className="w-2 h-2 bg-secondary rounded-full animate-pulse delay-100"></div>
@@ -136,7 +111,6 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
         </p>
       </div>
 
-      {/* Scanning lines */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-pulse"></div>
         <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-secondary to-transparent animate-pulse delay-500"></div>
