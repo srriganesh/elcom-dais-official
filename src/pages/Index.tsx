@@ -1,3 +1,5 @@
+import { useState } from "react";
+import LoadingAnimation from "@/components/LoadingAnimation";
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -7,6 +9,12 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  if (isLoading) {
+    return <LoadingAnimation onComplete={() => setIsLoading(false)} />;
+  }
+
   return (
     <div className="min-h-screen">
       <Navigation />
