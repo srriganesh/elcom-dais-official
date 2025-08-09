@@ -13,7 +13,7 @@ const AboutSection = () => {
             </div>
             <h3 className="text-xl font-semibold mb-4 text-primary">Innovation</h3>
             <p className="text-muted-foreground">
-              Content will be updated soon
+              Driven by passion, innovation, and a commitment to excellence, we provide a dynamic platform for students to explore the world of electronics, communication, and emerging technologies.
             </p>
           </CardContent>
         </Card>
@@ -25,7 +25,7 @@ const AboutSection = () => {
             </div>
             <h3 className="text-xl font-semibold mb-4 text-secondary">Community</h3>
             <p className="text-muted-foreground">
-              Content will be updated soon
+              We foster a collaborative environment where students can enhance their technical skills, engage in hands-on projects, participate in workshops and competitions, and connect with industry experts.
             </p>
           </CardContent>
         </Card>
@@ -37,7 +37,7 @@ const AboutSection = () => {
             </div>
             <h3 className="text-xl font-semibold mb-4 text-accent">Excellence</h3>
             <p className="text-muted-foreground">
-              Content will be updated soon
+              We aim to inspire future engineers to contribute meaningfully to technological advancements and societal development, bridging the gap between academia and industry.
             </p>
           </CardContent>
         </Card>
