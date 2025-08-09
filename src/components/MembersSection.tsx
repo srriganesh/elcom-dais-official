@@ -54,12 +54,22 @@ const MembersSection = () => {
         {teamMembers.map((member, index) => (
           <Card key={index} className="bg-gradient-to-br from-card to-muted/30 border-border cyber-border group hover:glow-primary transition-all duration-300">
             <CardContent className="p-8 text-center">
-              <Avatar className="w-20 h-20 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                <AvatarImage src={member.image} alt={member.name} />
-                <AvatarFallback className="bg-gradient-to-br from-primary to-secondary text-primary-foreground text-lg font-semibold">
+              <div className="w-24 h-24 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 overflow-hidden rounded-lg border-2 border-primary/20">
+                <img 
+                  src={member.image} 
+                  alt={member.name}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    const fallback = target.nextElementSibling as HTMLElement;
+                    if (fallback) fallback.style.display = 'flex';
+                  }}
+                />
+                <div className="w-full h-full bg-gradient-to-br from-primary to-secondary text-primary-foreground text-lg font-semibold flex items-center justify-center hidden">
                   {member.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
-                </AvatarFallback>
-              </Avatar>
+                </div>
+              </div>
               <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
               <p className="text-primary mb-2">{member.position}</p>
               <p className="text-muted-foreground text-sm">

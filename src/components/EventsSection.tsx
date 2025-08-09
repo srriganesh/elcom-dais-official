@@ -13,7 +13,16 @@ const EventsSection = () => {
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {[1, 2, 3, 4, 5, 6].map((index) => (
+        {[
+          "AI (Artificial Intelligence)",
+          "EMBEDDED Systems", 
+          "Robotics",
+          "Computer Network",
+          "VLSI",
+          "Industrial projects",
+          "Mock placement drive",
+          "Communication skills"
+        ].map((eventName, index) => (
           <Card key={index} className="bg-gradient-to-br from-card to-muted/30 border-border cyber-border group hover:glow-primary transition-all duration-300 overflow-hidden">
             <div className="h-48 bg-gradient-to-br from-primary/20 to-secondary/20 relative">
               <div className="absolute inset-0 flex items-center justify-center">
@@ -25,10 +34,10 @@ const EventsSection = () => {
             </div>
             <CardContent className="p-6">
               <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                Event Name
+                {eventName}
               </h3>
               <p className="text-muted-foreground text-sm mb-4">
-                Event description will be updated soon
+                Join us for an exciting {eventName.toLowerCase()} event with industry experts and hands-on learning
               </p>
               
               <div className="space-y-2 mb-6">
@@ -50,7 +59,7 @@ const EventsSection = () => {
                 className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/80 hover:to-secondary/80 text-primary-foreground"
                 size="sm"
               >
-                Learn More
+                Registration Opening Soon
               </Button>
             </CardContent>
           </Card>
