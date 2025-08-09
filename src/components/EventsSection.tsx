@@ -36,24 +36,24 @@ const EventsSection = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Events array (inaugural event placed in the middle)
+  // Events array
   const events = [
     { name: "AI (Artificial Intelligence)", image: aiEventImg },
     { name: "EMBEDDED Systems", image: embeddedSystemsImg },
-    { 
-      name: "Inaugural Event", 
+    {
+      name: "Inaugural Event",
       image: inauguralEventImg,
-      date: "August 14, 2025",
-      time: "10:00 AM",
-      venue: "SASTRA University Auditorium",
-      special: true
+      date: "11/08/2025",
+      time: "03:00 PM",
+      venue: "Auditorium",
+      special: true,
     },
     { name: "Robotics", image: roboticsImg },
     { name: "Computer Network", image: computerNetworkImg },
     { name: "VLSI", image: vlsiImg },
     { name: "Industrial projects", image: industrialProjectsImg },
     { name: "Mock placement drive", image: mockPlacementImg },
-    { name: "Communication skills", image: communicationSkillsImg }
+    { name: "Communication skills", image: communicationSkillsImg },
   ];
 
   return (
@@ -66,13 +66,13 @@ const EventsSection = () => {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
         {events.map((event, index) => (
-          <Card 
-            key={index} 
+          <Card
+            key={index}
             className="bg-gradient-to-br from-card to-muted/30 border-border cyber-border group hover:glow-primary transition-all duration-300 overflow-hidden"
           >
             <div className="h-48 relative overflow-hidden">
-              <img 
-                src={event.image} 
+              <img
+                src={event.image}
                 alt={event.name}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               />
@@ -110,7 +110,8 @@ const EventsSection = () => {
               ) : (
                 <>
                   <p className="text-muted-foreground text-sm mb-4">
-                    Join us for an exciting {event.name.toLowerCase()} event with industry experts and hands-on learning
+                    Join us for an exciting {event.name.toLowerCase()} event
+                    with industry experts and hands-on learning
                   </p>
                   <div className="space-y-2 mb-6">
                     <div className="flex items-center text-sm text-muted-foreground">
