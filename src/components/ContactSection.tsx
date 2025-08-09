@@ -1,7 +1,7 @@
 import SectionContainer from "./SectionContainer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Instagram, Linkedin, Github } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Linkedin, ImageIcon } from "lucide-react";
 
 const ContactSection = () => {
   return (
@@ -87,76 +87,21 @@ const ContactSection = () => {
                   <Linkedin className="w-4 h-4" />
                 </a>
               </Button>
-
-              <Button
-                size="sm"
-                variant="outline"
-                className="cyber-border hover:glow-primary"
-                asChild
-              >
-                <a href="#" target="_blank" rel="noopener noreferrer">
-                  <Github className="w-4 h-4" />
-                </a>
-              </Button>
             </div>
           </div>
         </div>
 
-        {/* Contact Form */}
+        {/* Photo Gallery Placeholder */}
         <Card className="bg-gradient-to-br from-card to-muted/30 border-border cyber-border">
           <CardContent className="p-8">
-            <h3 className="text-xl font-semibold mb-6">Send us a Message</h3>
-            <form
-              action="mailto:elcomdais2025@gmail.com"
-              method="POST"
-              encType="text/plain"
-              className="space-y-4"
+            <h3 className="text-xl font-semibold mb-6">Photo Gallery</h3>
+            <div
+              className="w-full h-64 bg-muted flex flex-col items-center justify-center rounded-md border border-border cyber-border cursor-pointer hover:glow-primary transition"
+              onClick={() => alert("Gallery coming soon!")}
             >
-              <div>
-                <label className="block text-sm font-medium mb-2">Name</label>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  className="w-full h-10 bg-input border border-border rounded-md cyber-border px-3"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  className="w-full h-10 bg-input border border-border rounded-md cyber-border px-3"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2">Subject</label>
-                <input
-                  type="text"
-                  name="subject"
-                  required
-                  className="w-full h-10 bg-input border border-border rounded-md cyber-border px-3"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2">Message</label>
-                <textarea
-                  name="message"
-                  required
-                  className="w-full h-24 bg-input border border-border rounded-md cyber-border px-3 py-2"
-                ></textarea>
-              </div>
-              <Button
-                type="submit"
-                className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/80 hover:to-secondary/80 text-primary-foreground glow-primary"
-              >
-                Send Message
-              </Button>
-            </form>
-            <p className="text-xs text-muted-foreground mt-4 text-center">
-              Form will open your email client to send the message
-            </p>
+              <ImageIcon className="w-12 h-12 text-muted-foreground mb-2" />
+              <p className="text-muted-foreground">No Photos Available</p>
+            </div>
           </CardContent>
         </Card>
       </div>
