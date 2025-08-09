@@ -43,7 +43,7 @@ const MembersSection = () => {
   ];
 
   return (
-    <SectionContainer id="members" title="Our Team">
+    <SectionContainer id="members" title="Our Leaders">
       <div className="text-center mb-12">
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           Meet the brilliant minds behind ELCOM DAIS
@@ -70,9 +70,9 @@ const MembersSection = () => {
                   {member.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
                 </div>
               </div>
-              <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-              <p className="text-primary mb-2">{member.position}</p>
-              <p className="text-muted-foreground text-sm">
+              <h3 className="text-xl font-semibold mb-2 group-hover:text-primary-foreground transition-colors">{member.name}</h3>
+              <p className="text-primary mb-2 group-hover:text-primary-foreground/90 transition-colors">{member.position}</p>
+              <p className="text-muted-foreground text-sm group-hover:text-primary-foreground/70 transition-colors">
                 {member.organization}
               </p>
             </CardContent>
