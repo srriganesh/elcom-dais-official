@@ -73,7 +73,7 @@ const EventsSection = () => {
           <Card
             key={index}
             onClick={() => setShowModal(true)}
-            className="cursor-pointer bg-gradient-to-br from-card to-muted/30 border-border cyber-border group hover:glow-primary hover:text-white transition-all duration-300 overflow-hidden max-w-md w-full"
+            className="cursor-pointer bg-gradient-to-br from-card to-muted/30 border-border cyber-border group hover:glow-primary hover:text-white hover:[&_*]:text-white transition-all duration-300 overflow-hidden max-w-md w-full"
           >
             <div className="h-56 relative overflow-hidden">
               <img
@@ -112,10 +112,67 @@ const EventsSection = () => {
         {events.slice(1).map((event, index) => (
           <Card
             key={index}
-            className="bg-gradient-to-br from-card to-muted/30 border-border cyber-border group hover:glow-primary hover:text-white transition-all duration-300 overflow-hidden"
+            className="bg-gradient-to-br from-card to-muted/30 border-border cyber-border group hover:glow-primary hover:text-white hover:[&_*]:text-white transition-all duration-300 overflow-hidden"
           >
             <div className="h-48 relative overflow-hidden">
               <img
                 src={event.image}
                 alt={event.name}
-                className="w-full h-full object-cover transition-transform durati
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute top-4 right-4 bg-primary/90 text-primary-foreground px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
+                Upcoming
+              </div>
+            </div>
+            <CardContent className="p-6 text-center">
+              <h3 className="text-xl font-semibold mb-3">{event.name}</h3>
+              <p className="text-sm mb-4">
+                Join us for an exciting {event.name.toLowerCase()} event with
+                industry experts and hands-on learning
+              </p>
+              <div className="space-y-2 mb-6 text-sm">
+                <div className="flex items-center">
+                  <Calendar className="w-4 h-4 mr-2" />
+                  <span>Date: TBA</span>
+                </div>
+                <div className="flex items-center">
+                  <Clock className="w-4 h-4 mr-2" />
+                  <span>Time: TBA</span>
+                </div>
+                <div className="flex items-center">
+                  <MapPin className="w-4 h-4 mr-2" />
+                  <span>Venue: TBA</span>
+                </div>
+              </div>
+              <p className="text-sm text-primary font-medium">
+                Registration Opening Soon
+              </p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+
+      {/* Modal for inaugural event image */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+          <div className="relative bg-white rounded-lg overflow-hidden max-w-3xl w-full">
+            <button
+              className="absolute top-3 right-3 bg-black/70 text-white rounded-full p-2 hover:bg-black"
+              onClick={() => setShowModal(false)}
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <img
+              src={inauguralEventImg}
+              alt="Inaugural Event"
+              className="w-full h-auto"
+            />
+          </div>
+        </div>
+      )}
+    </SectionContainer>
+  );
+};
+
+export default EventsSection;
