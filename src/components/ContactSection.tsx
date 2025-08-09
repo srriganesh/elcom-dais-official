@@ -17,26 +17,36 @@ const ContactSection = () => {
           </div>
 
           <div className="space-y-6">
-            <div className="flex items-center space-x-4">
+            {/* Email */}
+            <a
+              href="mailto:elcomdais2025@gmail.com"
+              className="flex items-center space-x-4 group"
+            >
               <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center glow-primary">
                 <Mail className="w-6 h-6 text-primary-foreground" />
               </div>
               <div>
                 <p className="font-medium">Email</p>
-                <p className="text-muted-foreground">Contact info will be updated soon</p>
+                <p className="text-muted-foreground group-hover:text-primary transition-colors">
+                  elcomdais2025@gmail.com
+                </p>
               </div>
-            </div>
+            </a>
 
-            <div className="flex items-center space-x-4">
+            {/* Phone */}
+            <a href="tel:+919442505733" className="flex items-center space-x-4 group">
               <div className="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center glow-secondary">
                 <Phone className="w-6 h-6 text-secondary-foreground" />
               </div>
               <div>
                 <p className="font-medium">Phone</p>
-                <p className="text-muted-foreground">Contact info will be updated soon</p>
+                <p className="text-muted-foreground group-hover:text-primary transition-colors">
+                  +91 94425 05733
+                </p>
               </div>
-            </div>
+            </a>
 
+            {/* Location */}
             <div className="flex items-center space-x-4">
               <div className="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-lg flex items-center justify-center">
                 <MapPin className="w-6 h-6 text-accent-foreground" />
@@ -52,14 +62,41 @@ const ContactSection = () => {
           <div className="pt-8">
             <h4 className="text-lg font-medium mb-4">Follow Us</h4>
             <div className="flex space-x-4">
-              <Button size="sm" variant="outline" className="cyber-border hover:glow-primary">
-                <Instagram className="w-4 h-4" />
+              <Button
+                size="sm"
+                variant="outline"
+                className="cyber-border hover:glow-primary"
+                asChild
+              >
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <Instagram className="w-4 h-4" />
+                </a>
               </Button>
-              <Button size="sm" variant="outline" className="cyber-border hover:glow-primary">
-                <Linkedin className="w-4 h-4" />
+
+              <Button
+                size="sm"
+                variant="outline"
+                className="cyber-border hover:glow-primary"
+                asChild
+              >
+                <a
+                  href="https://www.linkedin.com/company/elcom-dais/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Linkedin className="w-4 h-4" />
+                </a>
               </Button>
-              <Button size="sm" variant="outline" className="cyber-border hover:glow-primary">
-                <Github className="w-4 h-4" />
+
+              <Button
+                size="sm"
+                variant="outline"
+                className="cyber-border hover:glow-primary"
+                asChild
+              >
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <Github className="w-4 h-4" />
+                </a>
               </Button>
             </div>
           </div>
@@ -69,29 +106,56 @@ const ContactSection = () => {
         <Card className="bg-gradient-to-br from-card to-muted/30 border-border cyber-border">
           <CardContent className="p-8">
             <h3 className="text-xl font-semibold mb-6">Send us a Message</h3>
-            <div className="space-y-4">
+            <form
+              action="mailto:elcomdais2025@gmail.com"
+              method="POST"
+              encType="text/plain"
+              className="space-y-4"
+            >
               <div>
                 <label className="block text-sm font-medium mb-2">Name</label>
-                <div className="w-full h-10 bg-input border border-border rounded-md cyber-border"></div>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  className="w-full h-10 bg-input border border-border rounded-md cyber-border px-3"
+                />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2">Email</label>
-                <div className="w-full h-10 bg-input border border-border rounded-md cyber-border"></div>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  className="w-full h-10 bg-input border border-border rounded-md cyber-border px-3"
+                />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2">Subject</label>
-                <div className="w-full h-10 bg-input border border-border rounded-md cyber-border"></div>
+                <input
+                  type="text"
+                  name="subject"
+                  required
+                  className="w-full h-10 bg-input border border-border rounded-md cyber-border px-3"
+                />
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2">Message</label>
-                <div className="w-full h-24 bg-input border border-border rounded-md cyber-border"></div>
+                <textarea
+                  name="message"
+                  required
+                  className="w-full h-24 bg-input border border-border rounded-md cyber-border px-3 py-2"
+                ></textarea>
               </div>
-              <Button className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/80 hover:to-secondary/80 text-primary-foreground glow-primary">
+              <Button
+                type="submit"
+                className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/80 hover:to-secondary/80 text-primary-foreground glow-primary"
+              >
                 Send Message
               </Button>
-            </div>
+            </form>
             <p className="text-xs text-muted-foreground mt-4 text-center">
-              Form functionality will be implemented soon
+              Form will open your email client to send the message
             </p>
           </CardContent>
         </Card>
