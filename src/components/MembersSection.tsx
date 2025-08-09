@@ -54,7 +54,7 @@ const MembersSection = () => {
         {teamMembers.map((member, index) => (
           <Card key={index} className="bg-gradient-to-br from-card to-muted/30 border-border cyber-border group hover:glow-primary transition-all duration-300">
             <CardContent className="p-8 text-center">
-              <div className="w-24 h-24 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 overflow-hidden rounded-lg border-2 border-primary/20">
+              <div className="w-24 h-24 mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 overflow-hidden rounded-lg">
                 <img 
                   src={member.image} 
                   alt={member.name}
