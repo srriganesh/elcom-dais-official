@@ -15,6 +15,7 @@ import vlsiImg from "@/assets/events/vlsi.jpg";
 import industrialProjectsImg from "@/assets/events/industrial-projects.jpg";
 import mockPlacementImg from "@/assets/events/mock-placement.jpg";
 import communicationSkillsImg from "@/assets/events/communication-skills.jpg";
+import rfWirelessImg from "@/assets/events/rf-wireless.jpg"; // ✅ New image for RF Design
 
 const EventsSection = () => {
   const [currentTime, setCurrentTime] = useState("");
@@ -47,6 +48,7 @@ const EventsSection = () => {
     { id: "industrial", name: "Industrial projects", image: industrialProjectsImg },
     { id: "placement", name: "Mock placement drive", image: mockPlacementImg },
     { id: "communication", name: "Communication skills", image: communicationSkillsImg },
+    { id: "rf", name: "RF Design and Wireless Communication (6G)", image: rfWirelessImg }, // ✅ New Event
   ];
 
   const handleEventClick = (event: typeof events[0]) => {
@@ -62,22 +64,17 @@ const EventsSection = () => {
     const updateClock = () => {
       const now = new Date();
 
-      // Parse event date and time from inaugural event
-      const eventDateStr = events[0].date; // "11/08/2025"
-      const eventTimeStr = events[0].time; // "03:00 PM"
+      const eventDateStr = events[0].date; 
+      const eventTimeStr = events[0].time; 
 
-      // Extract date parts
       const [day, month, year] = eventDateStr.split("/").map(Number);
       let [time, meridian] = eventTimeStr.split(" ");
       let [hours, minutes] = time.split(":").map(Number);
 
-      // Convert 12-hour to 24-hour
       if (meridian === "PM" && hours !== 12) hours += 12;
       if (meridian === "AM" && hours === 12) hours = 0;
 
       const eventDate = new Date(year, month - 1, day, hours, minutes, 0);
-
-      // Calculate difference in milliseconds
       const diff = eventDate.getTime() - now.getTime();
 
       if (diff <= 0) {
@@ -85,18 +82,12 @@ const EventsSection = () => {
         return;
       }
 
-      // Calculate days, hours, minutes, seconds
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hoursLeft = Math.floor(
-        (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
+      const hoursLeft = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutesLeft = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
       const secondsLeft = Math.floor((diff % (1000 * 60)) / 1000);
 
-      // Format to dd:hh:mm:ss with leading zeros
-      const formattedTime = `${days
-        .toString()
-        .padStart(2, "0")}:${hoursLeft
+      const formattedTime = `${days.toString().padStart(2, "0")}:${hoursLeft
         .toString()
         .padStart(2, "0")}:${minutesLeft
         .toString()
