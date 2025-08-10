@@ -74,7 +74,7 @@ const ContactSection = () => {
             </a>
 
             {/* Phone */}
-            <a href="tel:+919442505733" className="flex items-center space-x-4 group">
+            <a href="tel:+919080149394" className="flex items-center space-x-4 group">
               <div className="w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center glow-secondary">
                 <Phone className="w-6 h-6 text-secondary-foreground" />
               </div>
