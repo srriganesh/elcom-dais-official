@@ -104,7 +104,7 @@ const ContactSection = () => {
                 className="cyber-border hover:glow-primary"
                 asChild
               >
-                <a href="https://www.instagram.com/p/DNKteSipyPh/?igsh=bXRmaXY1dDV0cTJ3" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/elcom_dais?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
                   <Instagram className="w-4 h-4" />
                 </a>
               </Button>
