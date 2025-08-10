@@ -3,7 +3,7 @@ import SectionContainer from "./SectionContainer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, MapPin, Clock, X } from "lucide-react";
 import EventModal from "./EventModal";
-import { eventRegistrations } from "@/data/events";
+import { eventDomains } from "@/data/events";
 
 // Import event images
 import inauguralEventImg from "@/assets/events/inaugural-event.jpg";
@@ -54,8 +54,8 @@ const EventsSection = () => {
     setShowModal(true);
   };
 
-  const getEventRegistration = (eventId: string) => {
-    return eventRegistrations.find(reg => reg.id === eventId);
+  const getEventDomain = (eventId: string) => {
+    return eventDomains.find(domain => domain.id === eventId);
   };
 
   useEffect(() => {
@@ -179,24 +179,10 @@ const EventsSection = () => {
             </div>
             <CardContent className="p-6 text-center">
               <h3 className="text-xl font-semibold mb-3">{event.name}</h3>
-              <p className="text-sm mb-4">
-                Join us for an exciting {event.name.toLowerCase()} event with
-                industry experts and hands-on learning
+              <p className="text-sm mb-6">
+                Explore exciting events and competitions in {event.name.toLowerCase()} domain with
+                industry experts and hands-on learning opportunities
               </p>
-              <div className="space-y-2 mb-6 text-sm">
-                <div className="flex items-center">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  <span>Date: TBA</span>
-                </div>
-                <div className="flex items-center">
-                  <Clock className="w-4 h-4 mr-2" />
-                  <span>Time: TBA</span>
-                </div>
-                <div className="flex items-center">
-                  <MapPin className="w-4 h-4 mr-2" />
-                  <span>Venue: TBA</span>
-                </div>
-              </div>
               <button className="px-4 py-2 bg-primary text-primary-foreground rounded-full font-semibold shadow-md hover:opacity-90 transition-all duration-300">
                 Explore Events
               </button>
@@ -209,7 +195,7 @@ const EventsSection = () => {
       {selectedEvent && (
         <EventModal
           event={selectedEvent}
-          registration={getEventRegistration(selectedEvent.id || "")}
+          domain={getEventDomain(selectedEvent.id || "")}
           isOpen={showModal}
           onClose={() => {
             setShowModal(false);

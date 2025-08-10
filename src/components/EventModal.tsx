@@ -1,65 +1,108 @@
-import { X, ExternalLink, Calendar, Clock, MapPin } from "lucide-react";
-import { EventRegistration } from "@/data/events";
+import { X, ExternalLink, Calendar, Clock, MapPin, Sparkles } from "lucide-react";
+import { EventDomain, DomainEvent } from "@/data/events";
 
 interface EventModalProps {
   event: {
+    id: string;
     name: string;
     image: string;
     date?: string;
     time?: string;
     venue?: string;
+    special?: boolean;
   };
-  registration: EventRegistration | undefined;
+  domain: EventDomain | undefined;
   isOpen: boolean;
   onClose: () => void;
 }
 
-const EventModal = ({ event, registration, isOpen, onClose }: EventModalProps) => {
+const EventModal = ({ event, domain, isOpen, onClose }: EventModalProps) => {
   if (!isOpen) return null;
 
-  const handleRegistrationClick = () => {
-    if (registration?.registrationLink) {
-      window.open(registration.registrationLink, '_blank');
+  const handleRegistrationClick = (registrationLink: string) => {
+    if (registrationLink) {
+      window.open(registrationLink, '_blank');
     }
   };
 
-  const renderActionButton = () => {
-    if (!registration) {
+  const renderEventsList = () => {
+    if (!domain) {
       return (
-        <div className="text-center py-8">
+        <div className="text-center py-12">
           <div className="animate-pulse">
-            <div className="text-primary text-lg font-semibold mb-2">
-              🚀 Events to be Announced
+            <Sparkles className="w-12 h-12 text-primary mx-auto mb-4" />
+            <div className="text-primary text-xl font-semibold mb-2">
+              🚀 Events Coming Soon
             </div>
             <p className="text-muted-foreground">
-              Stay tuned for exciting updates!
+              Exciting events in this domain will be announced shortly!
             </p>
           </div>
         </div>
       );
     }
 
-    if (!registration.isActive || !registration.registrationLink) {
+    if (!domain.events || domain.events.length === 0) {
       return (
-        <div className="text-center py-4">
-          <div className="text-primary text-lg font-semibold mb-2">
-            📋 Registration Coming Soon
+        <div className="text-center py-12">
+          <div className="animate-pulse">
+            <Sparkles className="w-12 h-12 text-primary mx-auto mb-4" />
+            <div className="text-primary text-xl font-semibold mb-2">
+              📋 Events to be Announced
+            </div>
+            <p className="text-muted-foreground">
+              Stay tuned for amazing events in {domain.name}!
+            </p>
           </div>
-          <p className="text-muted-foreground text-sm">
-            We're preparing something amazing for you!
-          </p>
         </div>
       );
     }
 
     return (
-      <button
-        onClick={handleRegistrationClick}
-        className="w-full bg-gradient-to-r from-primary to-primary/80 text-primary-foreground py-3 px-6 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 flex items-center justify-center gap-2 group"
-      >
-        Register Now
-        <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-      </button>
+      <div className="space-y-4">
+        <h3 className="text-lg font-semibold mb-4">Events in {domain.name}</h3>
+        {domain.events.map((domainEvent) => (
+          <div
+            key={domainEvent.id}
+            className="border border-border rounded-lg p-4 bg-gradient-to-br from-muted/30 to-transparent hover:from-muted/50 transition-all duration-300"
+          >
+            <div className="flex justify-between items-start mb-3">
+              <h4 className="font-semibold text-lg">{domainEvent.name}</h4>
+              <div className="flex gap-2">
+                {domainEvent.isActive && domainEvent.registrationLink ? (
+                  <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full">
+                    Open
+                  </span>
+                ) : (
+                  <span className="text-xs bg-orange-500/20 text-orange-400 px-2 py-1 rounded-full">
+                    Soon
+                  </span>
+                )}
+              </div>
+            </div>
+            
+            {domainEvent.description && (
+              <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                {domainEvent.description}
+              </p>
+            )}
+
+            {domainEvent.isActive && domainEvent.registrationLink ? (
+              <button
+                onClick={() => handleRegistrationClick(domainEvent.registrationLink!)}
+                className="w-full bg-gradient-to-r from-primary to-primary/80 text-primary-foreground py-2 px-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 flex items-center justify-center gap-2 group text-sm"
+              >
+                Register Now
+                <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </button>
+            ) : (
+              <div className="w-full text-center py-2 px-4 rounded-lg bg-muted/50 text-muted-foreground text-sm">
+                {domainEvent.registrationLink ? "Registration Opening Soon" : "Details Coming Soon"}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
     );
   };
 
@@ -84,15 +127,18 @@ const EventModal = ({ event, registration, isOpen, onClose }: EventModalProps) =
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           <div className="absolute bottom-4 left-4 right-16">
             <h2 className="text-2xl font-bold text-white mb-2">
-              {registration?.name || event.name}
+              {event.special ? event.name : domain?.name || event.name}
             </h2>
+            {domain && !event.special && (
+              <p className="text-white/80 text-sm">{domain.description}</p>
+            )}
           </div>
         </div>
 
         {/* Event Details */}
         <div className="p-6">
-          {/* Event Info for Inaugural Event */}
-          {event.date && event.time && event.venue && (
+          {/* Event Info for Inaugural Event Only */}
+          {event.special && event.date && event.time && event.venue && (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 p-4 bg-muted/30 rounded-lg">
               <div className="flex items-center gap-2 text-sm">
                 <Calendar className="w-4 h-4 text-primary" />
@@ -109,20 +155,18 @@ const EventModal = ({ event, registration, isOpen, onClose }: EventModalProps) =
             </div>
           )}
 
-          {/* Event Description */}
-          {registration?.description && (
+          {/* Events List or Description */}
+          {event.special ? (
             <div className="mb-6">
               <h3 className="text-lg font-semibold mb-2">About This Event</h3>
               <p className="text-muted-foreground leading-relaxed">
-                {registration.description}
+                Join us for the grand opening ceremony of our electronics engineering event series. 
+                This inaugural event will set the stage for all upcoming domain-specific competitions and workshops.
               </p>
             </div>
+          ) : (
+            renderEventsList()
           )}
-
-          {/* Action Button */}
-          <div className="space-y-4">
-            {renderActionButton()}
-          </div>
         </div>
       </div>
     </div>
