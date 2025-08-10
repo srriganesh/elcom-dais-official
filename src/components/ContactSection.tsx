@@ -77,7 +77,7 @@ const ContactSection = () => {
               <div>
                 <p className="font-medium">Phone</p>
                 <p className="text-muted-foreground group-hover:text-primary transition-colors">
-                  +91 94425 05733
+                  +91 90801 49394
                 </p>
               </div>
             </a>
@@ -104,7 +104,7 @@ const ContactSection = () => {
                 className="cyber-border hover:glow-primary"
                 asChild
               >
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/p/DNKteSipyPh/?igsh=bXRmaXY1dDV0cTJ3" target="_blank" rel="noopener noreferrer">
                   <Instagram className="w-4 h-4" />
                 </a>
               </Button>
