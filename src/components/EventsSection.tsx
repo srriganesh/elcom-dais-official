@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import SectionContainer from "./SectionContainer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, MapPin, Clock, X } from "lucide-react";
+import EventModal from "./EventModal";
+import { eventRegistrations } from "@/data/events";
 
 // Import event images
 import inauguralEventImg from "@/assets/events/inaugural-event.jpg";
@@ -17,9 +19,19 @@ import communicationSkillsImg from "@/assets/events/communication-skills.jpg";
 const EventsSection = () => {
   const [currentTime, setCurrentTime] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState<{
+    id: string;
+    name: string;
+    image: string;
+    date?: string;
+    time?: string;
+    venue?: string;
+    special?: boolean;
+  } | null>(null);
 
   const events = [
     {
+      id: "inaugural",
       name: "Inaugural Event",
       image: inauguralEventImg,
       date: "11/08/2025",
@@ -27,15 +39,24 @@ const EventsSection = () => {
       venue: "Auditorium",
       special: true,
     },
-    { name: "AI (Artificial Intelligence)", image: aiEventImg },
-    { name: "EMBEDDED Systems", image: embeddedSystemsImg },
-    { name: "Robotics", image: roboticsImg },
-    { name: "Computer Network", image: computerNetworkImg },
-    { name: "VLSI", image: vlsiImg },
-    { name: "Industrial projects", image: industrialProjectsImg },
-    { name: "Mock placement drive", image: mockPlacementImg },
-    { name: "Communication skills", image: communicationSkillsImg },
+    { id: "ai", name: "AI (Artificial Intelligence)", image: aiEventImg },
+    { id: "embedded", name: "EMBEDDED Systems", image: embeddedSystemsImg },
+    { id: "robotics", name: "Robotics", image: roboticsImg },
+    { id: "network", name: "Computer Network", image: computerNetworkImg },
+    { id: "vlsi", name: "VLSI", image: vlsiImg },
+    { id: "industrial", name: "Industrial projects", image: industrialProjectsImg },
+    { id: "placement", name: "Mock placement drive", image: mockPlacementImg },
+    { id: "communication", name: "Communication skills", image: communicationSkillsImg },
   ];
+
+  const handleEventClick = (event: typeof events[0]) => {
+    setSelectedEvent(event);
+    setShowModal(true);
+  };
+
+  const getEventRegistration = (eventId: string) => {
+    return eventRegistrations.find(reg => reg.id === eventId);
+  };
 
   useEffect(() => {
     const updateClock = () => {
@@ -102,7 +123,7 @@ const EventsSection = () => {
         {events.slice(0, 1).map((event, index) => (
           <Card
             key={index}
-            onClick={() => setShowModal(true)}
+            onClick={() => handleEventClick(event)}
             className="cursor-pointer bg-gradient-to-br from-card to-muted/30 border-border cyber-border group hover:glow-primary hover:text-white hover:[&_*]:text-white transition-all duration-300 overflow-hidden max-w-md w-full"
           >
             <div className="h-56 relative overflow-hidden">
@@ -142,7 +163,8 @@ const EventsSection = () => {
         {events.slice(1).map((event, index) => (
           <Card
             key={index}
-            className="bg-gradient-to-br from-card to-muted/30 border-border cyber-border group hover:glow-primary hover:text-white hover:[&_*]:text-white transition-all duration-300 overflow-hidden"
+            onClick={() => handleEventClick(event)}
+            className="cursor-pointer bg-gradient-to-br from-card to-muted/30 border-border cyber-border group hover:glow-primary hover:text-white hover:[&_*]:text-white transition-all duration-300 overflow-hidden"
           >
             <div className="h-48 relative overflow-hidden">
               <img
@@ -175,31 +197,25 @@ const EventsSection = () => {
                   <span>Venue: TBA</span>
                 </div>
               </div>
-              <button className="px-4 py-2 bg-primary text-primary-foreground rounded-full font-semibold shadow-md hover:opacity-90">
-                Registration Opening Soon
+              <button className="px-4 py-2 bg-primary text-primary-foreground rounded-full font-semibold shadow-md hover:opacity-90 transition-all duration-300">
+                Explore Events
               </button>
             </CardContent>
           </Card>
         ))}
       </div>
 
-      {/* Modal for inaugural event image */}
-      {showModal && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-          <div className="relative bg-white rounded-lg overflow-hidden max-w-3xl w-full">
-            <button
-              className="absolute top-3 right-3 bg-black/70 text-white rounded-full p-2 hover:bg-black"
-              onClick={() => setShowModal(false)}
-            >
-              <X className="w-5 h-5" />
-            </button>
-            <img
-              src={inauguralEventImg}
-              alt="Inaugural Event"
-              className="w-full h-auto"
-            />
-          </div>
-        </div>
+      {/* Event Modal */}
+      {selectedEvent && (
+        <EventModal
+          event={selectedEvent}
+          registration={getEventRegistration(selectedEvent.id || "")}
+          isOpen={showModal}
+          onClose={() => {
+            setShowModal(false);
+            setSelectedEvent(null);
+          }}
+        />
       )}
     </SectionContainer>
   );
