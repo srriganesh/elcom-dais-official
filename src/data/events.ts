@@ -25,16 +25,9 @@ export const eventDomains: EventDomain[] = [
       {
         id: "ai-workshop-1",
         name: "AI Fundamentals Workshop",
-        registrationLink: "https://forms.google.com/sample-ai-form", // Demo link - replace with actual
+        registrationLink: "https://docs.google.com/forms/d/e/1FAIpQLSf8YdwvBPNPAPiv55Nr6HXwOkpMlt5HD_WTWF44HLtxqfEoOw/viewform?usp=header", // Demo link - replace with actual
         description: "Introduction to AI concepts and applications",
         isActive: true,
-      },
-      {
-        id: "ai-workshop-2",
-        name: "Machine Learning Bootcamp",
-        registrationLink: "",
-        description: "Hands-on ML training and projects",
-        isActive: false,
       },
     ],
   },
