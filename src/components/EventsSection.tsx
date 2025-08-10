@@ -18,27 +18,6 @@ const EventsSection = () => {
   const [currentTime, setCurrentTime] = useState("");
   const [showModal, setShowModal] = useState(false);
 
-  useEffect(() => {
-    const updateClock = () => {
-      const now = new Date();
-      let hours = now.getHours();
-      const minutes = now.getMinutes();
-      const seconds = now.getSeconds();
-      const ampm = hours >= 12 ? "PM" : "AM";
-      hours = hours % 12 || 12;
-      const formattedTime = `${hours
-        .toString()
-        .padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds
-        .toString()
-        .padStart(2, "0")} ${ampm}`;
-      setCurrentTime(formattedTime);
-    };
-
-    updateClock();
-    const timer = setInterval(updateClock, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
   const events = [
     {
       name: "Inaugural Event",
@@ -57,6 +36,58 @@ const EventsSection = () => {
     { name: "Mock placement drive", image: mockPlacementImg },
     { name: "Communication skills", image: communicationSkillsImg },
   ];
+
+  useEffect(() => {
+    const updateClock = () => {
+      const now = new Date();
+
+      // Parse event date and time from inaugural event
+      const eventDateStr = events[0].date; // "11/08/2025"
+      const eventTimeStr = events[0].time; // "03:00 PM"
+
+      // Extract date parts
+      const [month, day, year] = eventDateStr.split("/").map(Number);
+      let [time, meridian] = eventTimeStr.split(" ");
+      let [hours, minutes] = time.split(":").map(Number);
+
+      // Convert 12-hour to 24-hour
+      if (meridian === "PM" && hours !== 12) hours += 12;
+      if (meridian === "AM" && hours === 12) hours = 0;
+
+      const eventDate = new Date(year, month - 1, day, hours, minutes, 0);
+
+      // Calculate difference in milliseconds
+      const diff = eventDate.getTime() - now.getTime();
+
+      if (diff <= 0) {
+        setCurrentTime("00:00:00:00");
+        return;
+      }
+
+      // Calculate days, hours, minutes, seconds
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hoursLeft = Math.floor(
+        (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutesLeft = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secondsLeft = Math.floor((diff % (1000 * 60)) / 1000);
+
+      // Format to dd:hh:mm:ss with leading zeros
+      const formattedTime = `${days
+        .toString()
+        .padStart(2, "0")}:${hoursLeft
+        .toString()
+        .padStart(2, "0")}:${minutesLeft
+        .toString()
+        .padStart(2, "0")}:${secondsLeft.toString().padStart(2, "0")}`;
+
+      setCurrentTime(formattedTime);
+    };
+
+    updateClock();
+    const timer = setInterval(updateClock, 1000);
+    return () => clearInterval(timer);
+  }, [events]);
 
   return (
     <SectionContainer id="events" title="Events" className="cyber-grid">
