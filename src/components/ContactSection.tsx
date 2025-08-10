@@ -8,8 +8,12 @@ import React from "react";
 import galleryImg1 from "@/assets/gallery/img1.jpg";
 import galleryImg2 from "@/assets/gallery/img2.jpg";
 import galleryImg3 from "@/assets/gallery/img3.jpg";
-
-const galleryImages = [galleryImg1, galleryImg2, galleryImg3];
+import galleryImg4 from "@/assets/gallery/img4.jpg";
+import galleryImg5 from "@/assets/gallery/img5.jpg";
+import galleryImg6 from "@/assets/gallery/img6.jpg";
+import galleryImg7 from "@/assets/gallery/img7.jpg";
+import galleryImg8 from "@/assets/gallery/img8.jpg";
+const galleryImages = [galleryImg1, galleryImg2, galleryImg3, galleryImg4, galleryImg5, galleryImg6, galleryImg7, galleryImg8];
 
 const Gallery = () => {
   if (galleryImages.length === 0) {
