@@ -46,7 +46,7 @@ const EventsSection = () => {
       const eventTimeStr = events[0].time; // "03:00 PM"
 
       // Extract date parts
-      const [month, day, year] = eventDateStr.split("/").map(Number);
+      const [day, month, year] = eventDateStr.split("/").map(Number);
       let [time, meridian] = eventTimeStr.split(" ");
       let [hours, minutes] = time.split(":").map(Number);
 
