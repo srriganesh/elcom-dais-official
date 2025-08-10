@@ -24,18 +24,18 @@ const MembersSection = () => {
     },
     {
       name: "Dr Revathy K",
-      position: "Elcom Dais Coordinator",
+      position: "Assistant Professor II",
       organization: "SRC, SASTRA",
       image: "/assets/team/dr-revathy-k.png"
     },
     {
       name: "Dr Gayathri Devi T",
-      position: "Elcom Dais Coordinator",
+      position: "Assistant Professor II",
       organization: "SRC, SASTRA",
       image: "/assets/team/dr-gayathri-devi-t.png"
     },
     {
-      name: "Krishna Sai Sanjeevi Singh",
+      name: "Krishnasingh Sai Sanjeevi Singh",
       position: "President",
       organization: "Elcom Dais",
       image: "/assets/team/krishna-sai-sanjeevi-singh.png"
