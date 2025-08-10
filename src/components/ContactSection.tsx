@@ -2,6 +2,41 @@ import SectionContainer from "./SectionContainer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Instagram, Linkedin, ImageIcon } from "lucide-react";
+import React from "react";
+
+// Dynamically import all images from gallery folder
+const importAll = (r: __WebpackModuleApi.RequireContext) => r.keys().map(r);
+const images = importAll(
+  require.context("@/assets/gallery", false, /\.(png|jpe?g|svg|gif)$/)
+);
+
+const Gallery = () => {
+  if (images.length === 0) {
+    return (
+      <div
+        className="w-full h-64 bg-muted flex flex-col items-center justify-center rounded-md border border-border cyber-border cursor-pointer hover:glow-primary transition"
+        onClick={() => alert("Gallery coming soon!")}
+      >
+        <ImageIcon className="w-12 h-12 text-muted-foreground mb-2" />
+        <p className="text-muted-foreground">No Photos Available</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      {images.map((imgSrc, idx) => (
+        <img
+          key={idx}
+          src={imgSrc}
+          alt={`Gallery Image ${idx + 1}`}
+          className="w-full h-32 object-cover rounded-md shadow-sm hover:scale-105 transition-transform cursor-pointer"
+          onClick={() => window.open(imgSrc, "_blank")}
+        />
+      ))}
+    </div>
+  );
+};
 
 const ContactSection = () => {
   return (
@@ -91,17 +126,11 @@ const ContactSection = () => {
           </div>
         </div>
 
-        {/* Photo Gallery Placeholder */}
+        {/* Photo Gallery */}
         <Card className="bg-gradient-to-br from-card to-muted/30 border-border cyber-border">
           <CardContent className="p-8">
             <h3 className="text-xl font-semibold mb-6">Photo Gallery</h3>
-            <div
-              className="w-full h-64 bg-muted flex flex-col items-center justify-center rounded-md border border-border cyber-border cursor-pointer hover:glow-primary transition"
-              onClick={() => alert("Gallery coming soon!")}
-            >
-              <ImageIcon className="w-12 h-12 text-muted-foreground mb-2" />
-              <p className="text-muted-foreground">No Photos Available</p>
-            </div>
+            <Gallery />
           </CardContent>
         </Card>
       </div>
