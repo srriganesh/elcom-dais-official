@@ -11,16 +11,16 @@ const MembersSection = () => {
       image: "/assets/team/dr-santhi-b.png"
     },
     {
-      name: "Dr Narasimhan D",
-      position: "Associate Dean",
-      organization: "SRC, SASTRA",
-      image: "/assets/team/dr-narasimhan-d.png"
-    },
-    {
       name: "Dr Alli Rani A",
       position: "Associate Dean",
       organization: "SRC, SASTRA",
       image: "/assets/team/dr-alli-rani-a.png"
+    },
+    {
+      name: "Dr Narasimhan D",
+      position: "Associate Dean",
+      organization: "SRC, SASTRA",
+      image: "/assets/team/dr-narasimhan-d.png"
     },
     {
       name: "Dr Revathy K",
