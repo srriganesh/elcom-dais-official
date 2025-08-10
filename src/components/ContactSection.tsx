@@ -91,7 +91,6 @@ const ContactSection = () => {
             <div className="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-lg flex items-center justify-center">
               <MapPin className="w-6 h-6 text-accent-foreground" />
             </div>
-            <div>
               <p className="font-medium">Location</p>
               <p className="text-muted-foreground">SRC SASTRA, Kumbakonam</p>
               <a
