@@ -24,14 +24,14 @@ const MembersSection = () => {
     },
     {
       name: "Dr Revathy K",
-      position: "Assistant Professor II \n\n Elcom Dais coordinator",
-      organization: "SRC, SASTRA",
+      position: "Assistant Professor II",
+      organization: "Elcom Dais Coordinator",
       image: "/assets/team/dr-revathy-k.png"
     },
     {
       name: "Dr Gayathri Devi T",
-      position: "Assistant Professor II \n\n Elcom Dais coordinator",
-      organization: "SRC, SASTRA",
+      position: "Assistant Professor II",
+      organization: "Elcom Dais Coordinator",
       image: "/assets/team/dr-gayathri-devi-t.png"
     },
     {
