@@ -15,7 +15,6 @@ const Footer = () => {
           </div>
           
           <p className="text-muted-foreground">
-            Electronics Engineering Excellence at SASTRA University
           </p>
           
           <div className="flex items-center justify-center space-x-2 text-sm text-muted-foreground">
@@ -25,7 +24,6 @@ const Footer = () => {
           </div>
           
           <p className="text-xs text-muted-foreground">
-            © 2024 ELCOM DAIS. All rights reserved.
           </p>
         </div>
       </div>
