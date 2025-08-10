@@ -4,13 +4,15 @@ import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Instagram, Linkedin, ImageIcon } from "lucide-react";
 import React from "react";
 
-// Dynamically import all images from src/assets/gallery using Vite's import.meta.globEager
-const images = Object.values(
-  import.meta.globEager('@/assets/gallery/*.{png,jpg,jpeg,svg,gif}')
-).map((mod: any) => mod.default);
+// Manually import your gallery images here
+import galleryImg1 from "@/assets/gallery/img1.jpg";
+import galleryImg2 from "@/assets/gallery/img2.jpg";
+import galleryImg3 from "@/assets/gallery/img3.jpg";
+
+const galleryImages = [galleryImg1, galleryImg2, galleryImg3];
 
 const Gallery = () => {
-  if (images.length === 0) {
+  if (galleryImages.length === 0) {
     return (
       <div
         className="w-full h-64 bg-muted flex flex-col items-center justify-center rounded-md border border-border cyber-border cursor-pointer hover:glow-primary transition"
@@ -24,7 +26,7 @@ const Gallery = () => {
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-      {images.map((imgSrc, idx) => (
+      {galleryImages.map((imgSrc, idx) => (
         <img
           key={idx}
           src={imgSrc}
