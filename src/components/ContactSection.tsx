@@ -104,63 +104,60 @@ const ContactSection = () => {
             </div>
           </div>
 
-        {/* Social Media */}
-        <div className="pt-8">
-          <h4 className="text-lg font-medium mb-4">Follow Us</h4>
-          <div className="flex space-x-4">
-            <Button
-              size="sm"
-              variant="outline"
-              className="cyber-border hover:glow-primary"
-              asChild
-            >
-              <a
-                href="https://www.instagram.com/elcom_dais?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Instagram className="w-4 h-4" />
-              </a>
-            </Button>
-        
-            <Button
-              size="sm"
-              variant="outline"
-              className="cyber-border hover:glow-primary"
-              asChild
-            >
-              <a
-                href="https://www.linkedin.com/company/elcom-dais/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
-            </Button>
-        
-            <Button
-              size="sm"
-              variant="outline"
-              className="cyber-border hover:glow-primary"
-              asChild
-            >
-              <a
-                href="https://whatsapp.com/channel/0029VbBDfFmBFLgNjbP7uT1K"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 448 512"
-                  className="w-4 h-4"
-                  fill="currentColor"
-                >
-                  <path d="M380.9 97.1C339-3.6 211.6-32 112 39.1 12.3 110.1-16.1 237.5 54.9 337.2c22.6 32 52.5 57.1 87.2 73.7l-14.2 61.2c-2.5 10.8 7.5 20.1 18 16l66.4-25.7c98.2 26.3 203.4-23.6 239.4-118.5 36.1-94.9-7.4-203.7-70.8-247.8zM222.6 369.9c-34.2 0-67.9-9.8-96.5-28.4l-6.9-4.5-40.2 15.6 7.7-33.3-5.4-6.9c-59.6-76.7-44.2-186.9 32.6-246.5 76.8-59.6 186.9-44.2 246.5 32.6 59.6 76.8 44.2 186.9-32.6 246.5-28.6 22.1-64.4 34.9-105.2 34.9zm92.5-123.9c-4.6-2.3-27.3-13.4-31.5-15-4.2-1.5-7.3-2.3-10.4 2.3-3.1 4.6-11.9 15-14.6 18.1-2.7 3.1-5.4 3.5-10 1.2-4.6-2.3-19.4-7.2-36.9-22.9-13.6-12.1-22.8-27.1-25.5-31.7-2.7-4.6-.3-7.1 2-9.4 2-2 4.6-5.4 6.9-8.1 2.3-2.7 3.1-4.6 4.6-7.7 1.5-3.1.8-5.8-.4-8.1-1.2-2.3-10.4-24.9-14.2-34.2-3.8-9.2-7.7-7.9-10.4-8-2.7-.1-5.8-.1-8.8-.1s-8.1 1.2-12.3 5.8c-4.2 4.6-16.1 15.8-16.1 38.5s16.5 44.7 18.8 47.7c2.3 3.1 32.4 49.5 78.5 69.4 10.9 4.7 19.4 7.5 26 9.6 10.9 3.4 20.8 2.9 28.6 1.7 8.7-1.3 27.3-11.2 31.2-22.1 3.8-10.9 3.8-20.2 2.7-22.1-1.1-1.9-4.2-3.1-8.8-5.4z" />
-                </svg>
-              </a>
-            </Button>
-          </div>
-        </div>
+{/* Social Media */}
+<div className="pt-8">
+  <h4 className="text-lg font-medium mb-4">Follow Us</h4>
+  <div className="flex space-x-4">
+    {/* Instagram */}
+    <Button
+      size="sm"
+      variant="outline"
+      className="cyber-border hover:glow-primary"
+      asChild
+    >
+      <a
+        href="https://www.instagram.com/elcom_dais?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Instagram className="w-4 h-4" />
+      </a>
+    </Button>
+
+    {/* LinkedIn */}
+    <Button
+      size="sm"
+      variant="outline"
+      className="cyber-border hover:glow-primary"
+      asChild
+    >
+      <a
+        href="https://www.linkedin.com/company/elcom-dais/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Linkedin className="w-4 h-4" />
+      </a>
+    </Button>
+
+    {/* WhatsApp */}
+    <Button
+      size="sm"
+      variant="outline"
+      className="cyber-border hover:glow-primary"
+      asChild
+    >
+      <a
+        href="https://whatsapp.com/channel/0029VbBDfFmBFLgNjbP7uT1K"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <MessageCircle className="w-4 h-4" />
+      </a>
+    </Button>
+  </div>
+</div>
+
 
 
         {/* Photo Gallery */}
