@@ -19,7 +19,7 @@ const ContactSection = () => {
           <div className="space-y-6">
             {/* Email */}
             <a
-              href="mailto:elcomdais2025@gmail.com"
+              href="mailto:elcomdais2k25@gmail.com"
               className="flex items-center space-x-4 group"
             >
               <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center glow-primary">
@@ -28,7 +28,7 @@ const ContactSection = () => {
               <div>
                 <p className="font-medium">Email</p>
                 <p className="text-muted-foreground group-hover:text-primary transition-colors">
-                  elcomdais2025@gmail.com
+                  elcomdais2k25@gmail.com
                 </p>
               </div>
             </a>
@@ -53,7 +53,7 @@ const ContactSection = () => {
               </div>
               <div>
                 <p className="font-medium">Location</p>
-                <p className="text-muted-foreground">SASTRA University, Thanjavur</p>
+                <p className="text-muted-foreground">SRC SASTRA, Kumbakonam</p>
               </div>
             </div>
           </div>
