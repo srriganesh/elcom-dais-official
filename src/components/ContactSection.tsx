@@ -86,15 +86,22 @@ const ContactSection = () => {
               </div>
             </a>
 
-            {/* Location */}
-            <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-lg flex items-center justify-center">
-                <MapPin className="w-6 h-6 text-accent-foreground" />
-              </div>
-              <div>
-                <p className="font-medium">Location</p>
-                <p className="text-muted-foreground">SRC SASTRA, Kumbakonam</p>
-              </div>
+          {/* Location */}
+          <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-lg flex items-center justify-center">
+              <MapPin className="w-6 h-6 text-accent-foreground" />
+            </div>
+            <div>
+              <p className="font-medium">Location</p>
+              <p className="text-muted-foreground">SRC SASTRA, Kumbakonam</p>
+              <a
+                href="https://maps.app.goo.gl/WocaXmRgPHsSLCnKA" // placeholder link
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-2 px-3 py-1 bg-primary text-primary-foreground text-sm rounded-lg hover:opacity-90 transition"
+              >
+                View on Map
+              </a>
             </div>
           </div>
 
