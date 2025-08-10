@@ -4,11 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Instagram, Linkedin, ImageIcon } from "lucide-react";
 import React from "react";
 
-// Dynamically import all images from gallery folder
-const importAll = (r: __WebpackModuleApi.RequireContext) => r.keys().map(r);
-const images = importAll(
-  require.context("@/assets/gallery", false, /\.(png|jpe?g|svg|gif)$/)
-);
+// Dynamically import all images from src/assets/gallery using Vite's import.meta.globEager
+const images = Object.values(
+  import.meta.globEager('@/assets/gallery/*.{png,jpg,jpeg,svg,gif}')
+).map((mod: any) => mod.default);
 
 const Gallery = () => {
   if (images.length === 0) {
