@@ -1,7 +1,7 @@
 import SectionContainer from "./SectionContainer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Instagram, Linkedin, ImageIcon } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Linkedin, ImageIcon, MessageCircle } from "lucide-react";
 import React from "react";
 
 // Manually import your gallery images here
