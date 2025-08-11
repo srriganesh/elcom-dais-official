@@ -13,7 +13,16 @@ import galleryImg5 from "@/assets/gallery/img5.jpg";
 import galleryImg6 from "@/assets/gallery/img6.jpg";
 import galleryImg7 from "@/assets/gallery/img7.jpg";
 import galleryImg8 from "@/assets/gallery/img8.jpg";
-const galleryImages = [galleryImg1, galleryImg2, galleryImg3, galleryImg4, galleryImg5, galleryImg6, galleryImg7, galleryImg8];
+const galleryImages = [
+  galleryImg1,
+  galleryImg2,
+  galleryImg3,
+  galleryImg4,
+  galleryImg5,
+  galleryImg6,
+  galleryImg7,
+  galleryImg8,
+];
 
 const Gallery = () => {
   if (galleryImages.length === 0) {
@@ -86,79 +95,80 @@ const ContactSection = () => {
               </div>
             </a>
 
-          {/* Location */}
-          <div className="flex items-center space-x-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-lg flex items-center justify-center">
-              <MapPin className="w-6 h-6 text-accent-foreground" />
-            </div>
-              <p className="font-medium">Location</p>
-              <p className="text-muted-foreground">SRC SASTRA, Kumbakonam</p>
-              <a
-                href="https://maps.app.goo.gl/WocaXmRgPHsSLCnKA" // placeholder link
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-2 px-3 py-1 bg-primary text-primary-foreground text-sm rounded-lg hover:opacity-90 transition"
-              >
-                View on Map
-              </a>
+            {/* Location */}
+            <div className="flex items-center space-x-4">
+              <div className="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-lg flex items-center justify-center">
+                <MapPin className="w-6 h-6 text-accent-foreground" />
+              </div>
+              <div>
+                <p className="font-medium">Location</p>
+                <p className="text-muted-foreground">SRC SASTRA, Kumbakonam</p>
+                <a
+                  href="https://maps.app.goo.gl/WocaXmRgPHsSLCnKA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-2 px-3 py-1 bg-primary text-primary-foreground text-sm rounded-lg hover:opacity-90 transition"
+                >
+                  View on Map
+                </a>
+              </div>
             </div>
           </div>
 
-{/* Social Media */}
-<div className="pt-8">
-  <h4 className="text-lg font-medium mb-4">Follow Us</h4>
-  <div className="flex space-x-4">
-    {/* Instagram */}
-    <Button
-      size="sm"
-      variant="outline"
-      className="cyber-border hover:glow-primary"
-      asChild
-    >
-      <a
-        href="https://www.instagram.com/elcom_dais?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Instagram className="w-4 h-4" />
-      </a>
-    </Button>
+          {/* Social Media */}
+          <div className="pt-8">
+            <h4 className="text-lg font-medium mb-4">Follow Us</h4>
+            <div className="flex space-x-4">
+              {/* Instagram */}
+              <Button
+                size="sm"
+                variant="outline"
+                className="cyber-border hover:glow-primary"
+                asChild
+              >
+                <a
+                  href="https://www.instagram.com/elcom_dais?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Instagram className="w-4 h-4" />
+                </a>
+              </Button>
 
-    {/* LinkedIn */}
-    <Button
-      size="sm"
-      variant="outline"
-      className="cyber-border hover:glow-primary"
-      asChild
-    >
-      <a
-        href="https://www.linkedin.com/company/elcom-dais/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Linkedin className="w-4 h-4" />
-      </a>
-    </Button>
+              {/* LinkedIn */}
+              <Button
+                size="sm"
+                variant="outline"
+                className="cyber-border hover:glow-primary"
+                asChild
+              >
+                <a
+                  href="https://www.linkedin.com/company/elcom-dais/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Linkedin className="w-4 h-4" />
+                </a>
+              </Button>
 
-    {/* WhatsApp */}
-    <Button
-      size="sm"
-      variant="outline"
-      className="cyber-border hover:glow-primary"
-      asChild
-    >
-      <a
-        href="https://whatsapp.com/channel/0029VbBDfFmBFLgNjbP7uT1K"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <MessageCircle className="w-4 h-4" />
-      </a>
-    </Button>
-  </div>
-</div>
-
-
+              {/* WhatsApp */}
+              <Button
+                size="sm"
+                variant="outline"
+                className="cyber-border hover:glow-primary"
+                asChild
+              >
+                <a
+                  href="https://whatsapp.com/channel/0029VbBDfFmBFLgNjbP7uT1K"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
 
         {/* Photo Gallery */}
         <Card className="bg-gradient-to-br from-card to-muted/30 border-border cyber-border">
