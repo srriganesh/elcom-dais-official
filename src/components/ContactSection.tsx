@@ -1,7 +1,8 @@
 import SectionContainer from "./SectionContainer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Instagram, Linkedin, ImageIcon, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Linkedin, ImageIcon } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa"; // ✅ WhatsApp icon
 import React from "react";
 
 // Manually import your gallery images here
@@ -13,6 +14,7 @@ import galleryImg5 from "@/assets/gallery/img5.jpg";
 import galleryImg6 from "@/assets/gallery/img6.jpg";
 import galleryImg7 from "@/assets/gallery/img7.jpg";
 import galleryImg8 from "@/assets/gallery/img8.jpg";
+
 const galleryImages = [
   galleryImg1,
   galleryImg2,
@@ -159,11 +161,11 @@ const ContactSection = () => {
                 asChild
               >
                 <a
-                  href="https://whatsapp.com/channel/0029VbBDfFmBFLgNjbP7uT1K"
+                  href="https://whatsapp.com/channel/0029VbBDfFmBFLgNjbP7uT1K" // ✅ Direct chat link
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <FaWhatsapp className="w-4 h-4 text-green-500" />
                 </a>
               </Button>
             </div>
