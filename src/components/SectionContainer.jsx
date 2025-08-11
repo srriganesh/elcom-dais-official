@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import React from "react";
 
 const SectionContainer = ({ id, title, children, className = "" }) => {
   return (
