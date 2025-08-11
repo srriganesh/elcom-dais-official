@@ -1,4 +1,3 @@
-import React from "react";
 import SectionContainer from "./SectionContainer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Lightbulb, Users, Award } from "lucide-react";
