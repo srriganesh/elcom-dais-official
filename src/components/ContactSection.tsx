@@ -1,8 +1,7 @@
 import SectionContainer from "./SectionContainer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Instagram, Linkedin, ImageIcon } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa"; // ✅ WhatsApp icon
+import { Mail, Phone, MapPin, Instagram, Linkedin, ImageIcon, MessageCircleMore } from "lucide-react"; // ✅ using MessageCircleMore for WhatsApp-like icon
 import React from "react";
 
 // Manually import your gallery images here
@@ -153,7 +152,7 @@ const ContactSection = () => {
                 </a>
               </Button>
 
-              {/* WhatsApp */}
+              {/* WhatsApp (lucide-react alternative) */}
               <Button
                 size="sm"
                 variant="outline"
@@ -161,11 +160,11 @@ const ContactSection = () => {
                 asChild
               >
                 <a
-                  href="https://whatsapp.com/channel/0029VbBDfFmBFLgNjbP7uT1K" // ✅ Direct chat link
+                  href="https://whatsapp.com/channel/0029VbBDfFmBFLgNjbP7uT1K"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FaWhatsapp className="w-4 h-4 text-green-500" />
+                  <MessageCircleMore className="w-4 h-4 text-green-500" />
                 </a>
               </Button>
             </div>
