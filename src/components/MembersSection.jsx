@@ -61,9 +61,9 @@ const MembersSection = () => {
                     alt={member.name}
                     className="w-full h-full object-cover rounded-full"
                     onError={(e) => {
-                      const target = e.target as HTMLImageElement;
+                      const target = e.target;
                       target.style.display = 'none';
-                      const fallback = target.nextElementSibling as HTMLElement;
+                      const fallback = target.nextElementSibling;
                       if (fallback) fallback.style.display = 'flex';
                     }}
                   />

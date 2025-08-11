@@ -1,12 +1,8 @@
 import { useState, useEffect } from "react";
 
-interface LoadingAnimationProps {
-  onComplete: () => void;
-}
-
-const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
+const LoadingAnimation = ({ onComplete }) => {
   const [currentStep, setCurrentStep] = useState(0); // 0: none, 1: SASTRA, 2: ELCOM, 3: INNOVATE
-  const [fadeState, setFadeState] = useState<'in' | 'out'>('in');
+  const [fadeState, setFadeState] = useState('in');
 
   useEffect(() => {
     setCurrentStep(1);
@@ -19,7 +15,7 @@ const LoadingAnimation = ({ onComplete }: LoadingAnimationProps) => {
 
     let totalTime = 0;
 
-    const timers: NodeJS.Timeout[] = [];
+    const timers = [];
 
     fadeTimings.forEach(({ step, duration }) => {
       const fadeInTime = totalTime + 0;

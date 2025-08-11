@@ -1,13 +1,6 @@
 import { ReactNode } from "react";
 
-interface SectionContainerProps {
-  id: string;
-  title: string;
-  children: ReactNode;
-  className?: string;
-}
-
-const SectionContainer = ({ id, title, children, className = "" }: SectionContainerProps) => {
+const SectionContainer = ({ id, title, children, className = "" }) => {
   return (
     <section id={id} className={`py-20 px-4 ${className}`}>
       <div className="container mx-auto max-w-6xl">
