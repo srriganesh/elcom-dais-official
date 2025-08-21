@@ -162,7 +162,7 @@ const EventModal = ({ event, domain, isOpen, onClose }: EventModalProps) => {
               <p className="text-muted-foreground leading-relaxed">
                 Join us for an inspiring KLF Lecture as we journey through India’s space exploration
                  milestones – from Aryabhata to Gaganyaan. This session will highlight the remarkable 
-                 legacy of SDSC SHAR and its pivotal role in shaping the future of space missions.</p>
+                 legacy of SDSC SHAR and its pivotal role of Engineers in shaping the future of space missions.</p>
             </div>
           ) : (
             renderEventsList()
