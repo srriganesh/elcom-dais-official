@@ -160,9 +160,9 @@ const EventModal = ({ event, domain, isOpen, onClose }: EventModalProps) => {
             <div className="mb-6">
               <h3 className="text-lg font-semibold mb-2">About This Event</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Join us for the grand opening ceremony of our electronics engineering event series. 
-                This inaugural event will set the stage for all upcoming domain-specific competitions and workshops.
-              </p>
+                Join us for an inspiring KLF Lecture as we journey through India’s space exploration
+                 milestones – from Aryabhata to Gaganyaan. This session will highlight the remarkable 
+                 legacy of SDSC SHAR and its pivotal role in shaping the future of space missions.</p>
             </div>
           ) : (
             renderEventsList()

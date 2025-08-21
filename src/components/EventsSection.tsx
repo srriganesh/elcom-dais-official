@@ -11,6 +11,7 @@ import aiEventImg from "@/assets/events/ai-event.jpg";
 import embeddedSystemsImg from "@/assets/events/embedded-systems.jpg";
 import roboticsImg from "@/assets/events/robotics.jpg";
 import computerNetworkImg from "@/assets/events/computer-network.jpg";
+import lecture from "@/assets/events/lecture.jpg";
 import vlsiImg from "@/assets/events/vlsi.jpg";
 import industrialProjectsImg from "@/assets/events/industrial-projects.jpg";
 import mockPlacementImg from "@/assets/events/mock-placement.jpg";
@@ -32,11 +33,11 @@ const EventsSection = () => {
 
   const events = [
     {
-      id: "inaugural",
-      name: "Inaugural Event",
-      image: inauguralEventImg,
-      date: "11/08/2025",
-      time: "03:00 PM",
+      id: "Lecture",
+      name: "Lecture on Journey of SDSC SHAR",
+      image: lecture,
+      date: "23/08/2025",
+      time: "10:00 AM",
       venue: "Auditorium",
       special: true,
     },
