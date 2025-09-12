@@ -34,11 +34,11 @@ const EventsSection = () => {
   const events = [
     {
       id: "Lecture",
-      name: "Lecture on Journey of SDSC SHAR",
+      name: "BEYOND THE RECESSION:Empowering students in AI ERA",
       image: lecture,
-      date: "23/08/2025",
-      time: "10:00 AM",
-      venue: "Auditorium",
+      date: "13/09/2025",
+      time: "03:00 AM",
+      venue: "201",
       special: true,
     },
     { id: "ai", name: "AI (Artificial Intelligence)", image: aiEventImg },
