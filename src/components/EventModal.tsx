@@ -80,7 +80,7 @@ const EventModal = ({ event, domain, isOpen, onClose }: EventModalProps) => {
                 )}
               </div>
             </div>
-            
+
             {domainEvent.description && (
               <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
                 {domainEvent.description}
@@ -160,9 +160,7 @@ const EventModal = ({ event, domain, isOpen, onClose }: EventModalProps) => {
             <div className="mb-6">
               <h3 className="text-lg font-semibold mb-2">About This Event</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Join us for an inspiring KLF Lecture as we journey through India’s space exploration
-                 milestones – from Aryabhata to Gaganyaan. This session will highlight the remarkable 
-                 legacy of SDSC SHAR and its pivotal role of Engineers in shaping the future of space missions.</p>
+                Join us for an inspiring ECE Guest Lecture as we explore how students can rise Beyond the Recession and thrive in the AI Era. This session will highlight the transformative opportunities Artificial Intelligence brings, and the pivotal role of young engineers in shaping an empowered and resilient future..</p>
             </div>
           ) : (
             renderEventsList()

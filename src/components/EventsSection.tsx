@@ -12,7 +12,9 @@ import embeddedSystemsImg from "@/assets/events/embedded-systems.jpg";
 import roboticsImg from "@/assets/events/robotics.jpg";
 import computerNetworkImg from "@/assets/events/computer-network.jpg";
 import lecture from "@/assets/events/lecture.jpg";
+import lecture2 from "@/assets/events/lecture2.jpg";
 import vlsiImg from "@/assets/events/vlsi.jpg";
+import ai from "@/assets/events/ai-event.jpg";
 import industrialProjectsImg from "@/assets/events/industrial-projects.jpg";
 import mockPlacementImg from "@/assets/events/mock-placement.jpg";
 import communicationSkillsImg from "@/assets/events/communication-skills.jpg";
@@ -35,16 +37,16 @@ const EventsSection = () => {
     {
       id: "Lecture",
       name: "BEYOND THE RECESSION:Empowering students in AI ERA",
-      image: lecture,
+      image: lecture2,
       date: "13/09/2025",
-      time: "03:00 AM",
+      time: "03:00 PM",
       venue: "201",
       special: true,
     },
     {
       id: "Lecture",
       name: "AI & IOT HANDS-ON WORKSHOP",
-      image: lecture,
+      image: ai,
       date: "15/09/2025",
       time: "02:00 AM",
       venue: "201",
