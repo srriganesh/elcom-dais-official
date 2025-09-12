@@ -44,7 +44,7 @@ const EventsSection = () => {
     {
       id: "Lecture",
       name: "AI & IOT HANDS-ON WORKSHOP",
-      image: workshop,
+      image: lecture,
       date: "15/09/2025",
       time: "02:00 AM",
       venue: "201",
