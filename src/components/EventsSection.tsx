@@ -19,6 +19,7 @@ import industrialProjectsImg from "@/assets/events/industrial-projects.jpg";
 import mockPlacementImg from "@/assets/events/mock-placement.jpg";
 import communicationSkillsImg from "@/assets/events/communication-skills.jpg";
 import rfWirelessImg from "@/assets/events/rf-wireless.jpg"; // ✅ New image for RF Design
+import AboutSection from "./AboutSection";
 
 const EventsSection = () => {
   const [currentTime, setCurrentTime] = useState("");
@@ -42,6 +43,7 @@ const EventsSection = () => {
       time: "03:00 PM",
       venue: "201",
       special: true,
+      about: "Join us for an inspiring ECE Guest Lecture as we explore how students can rise Beyond the Recession and thrive in the AI Era. This session will highlight the transformative opportunities Artificial Intelligence brings, and the pivotal role of young engineers in shaping an empowered and resilient future.."
     },
     {
       id: "Lecture",
@@ -51,15 +53,16 @@ const EventsSection = () => {
       time: "02:00 AM",
       venue: "201",
       special: true,
+      about: "Join us for an immersive AI & IoT Hands-On Workshop designed to equip you with practical skills in Artificial Intelligence and Internet of Things technologies. This workshop offers a unique opportunity to engage in interactive sessions, real-world projects, and expert-led tutorials that will empower you to innovate and excel in the rapidly evolving tech landscape."
     },
-    { id: "embedded", name: "EMBEDDED Systems", image: embeddedSystemsImg },
-    { id: "robotics", name: "Robotics", image: roboticsImg },
-    { id: "network", name: "Computer Network", image: computerNetworkImg },
-    { id: "vlsi", name: "VLSI", image: vlsiImg },
-    { id: "industrial", name: "Industrial projects", image: industrialProjectsImg },
-    { id: "placement", name: "Mock placement drive", image: mockPlacementImg },
-    { id: "communication", name: "Communication skills", image: communicationSkillsImg },
-    { id: "rf", name: "RF Design and Wireless Communication (6G)", image: rfWirelessImg }, // ✅ New Event
+    { id: "embedded", name: "EMBEDDED Systems", image: embeddedSystemsImg, about: "Dive into the world of Embedded Systems with our hands-on workshops and competitions. Learn to design and program microcontrollers, develop IoT applications, and explore real-time operating systems. Gain practical skills through projects and challenges that prepare you for a career in this dynamic field." },
+    { id: "robotics", name: "Robotics", image: roboticsImg, about: "Explore the exciting field of Robotics through our engaging events and competitions. Learn about robot design, programming, and automation technologies. Participate in hands-on workshops and challenges that will enhance your skills and prepare you for a future in robotics engineering." },
+    { id: "network", name: "Computer Network", image: computerNetworkImg ,about: "Delve into the fundamentals of Computer Networking with our interactive workshops and competitions. Understand network protocols, architecture, and security through practical sessions and real-world scenarios. Enhance your skills in network design and management, preparing you for a successful career in the IT and networking industry."},
+    { id: "vlsi", name: "VLSI", image: vlsiImg ,about: "Immerse yourself in the world of VLSI (Very Large Scale Integration) through our specialized workshops and competitions. Learn about chip design, semiconductor technology, and circuit simulation. Gain hands-on experience with industry-standard tools and techniques, preparing you for a career in VLSI design and microelectronics."},
+    { id: "industrial", name: "Industrial projects", image: industrialProjectsImg ,about: "Engage in real-world Industrial Projects that provide hands-on experience in electronics engineering. Collaborate on projects that address industry challenges, applying theoretical knowledge to practical solutions. Gain insights into project management, teamwork, and innovation, preparing you for a successful career in the industrial sector." },
+    { id: "placement", name: "Mock placement drive", image: mockPlacementImg,about: "Prepare for your career with our comprehensive Mock Placement Drive. Participate in simulated interviews, aptitude tests, and group discussions designed to mirror real-world placement scenarios. Receive valuable feedback and guidance to enhance your skills, boost your confidence, and increase your chances of success in actual job placements." },
+    { id: "communication", name: "Communication skills", image: communicationSkillsImg ,about: "Enhance your Communication Skills through our targeted workshops and training sessions. Learn effective verbal and non-verbal communication techniques, presentation skills, and professional writing. Participate in interactive activities that build confidence and improve your ability to convey ideas clearly and persuasively in both personal and professional settings."},
+    { id: "rf", name: "RF Design and Wireless Communication (6G)", image: rfWirelessImg ,about:"Discover the future of connectivity with RF Design and Wireless Communication (6G). This session will cover advances in antenna design, spectrum usage, and the role of 6G in building ultra-fast, intelligent networks, while highlighting opportunities for students in next-gen wireless systems."}, // ✅ New Event
   ];
 
   const handleEventClick = (event: typeof events[0]) => {
@@ -75,8 +78,8 @@ const EventsSection = () => {
     const updateClock = () => {
       const now = new Date();
 
-      const eventDateStr = events[0].date; 
-      const eventTimeStr = events[0].time; 
+      const eventDateStr = events[0].date;
+      const eventTimeStr = events[0].time;
 
       const [day, month, year] = eventDateStr.split("/").map(Number);
       let [time, meridian] = eventTimeStr.split(" ");
@@ -101,8 +104,8 @@ const EventsSection = () => {
       const formattedTime = `${days.toString().padStart(2, "0")}:${hoursLeft
         .toString()
         .padStart(2, "0")}:${minutesLeft
-        .toString()
-        .padStart(2, "0")}:${secondsLeft.toString().padStart(2, "0")}`;
+          .toString()
+          .padStart(2, "0")}:${secondsLeft.toString().padStart(2, "0")}`;
 
       setCurrentTime(formattedTime);
     };

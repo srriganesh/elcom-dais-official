@@ -9,6 +9,7 @@ interface EventModalProps {
     date?: string;
     time?: string;
     venue?: string;
+    about?: string;
     special?: boolean;
   };
   domain: EventDomain | undefined;
@@ -159,8 +160,7 @@ const EventModal = ({ event, domain, isOpen, onClose }: EventModalProps) => {
           {event.special ? (
             <div className="mb-6">
               <h3 className="text-lg font-semibold mb-2">About This Event</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Join us for an inspiring ECE Guest Lecture as we explore how students can rise Beyond the Recession and thrive in the AI Era. This session will highlight the transformative opportunities Artificial Intelligence brings, and the pivotal role of young engineers in shaping an empowered and resilient future..</p>
+              <p className="text-muted-foreground leading-relaxed">{event.about}</p>
             </div>
           ) : (
             renderEventsList()
