@@ -37,16 +37,6 @@ const EventsSection = () => {
   const events = [
     {
       id: "Lecture",
-      name: "BEYOND THE RECESSION:Empowering students in AI ERA",
-      image: lecture2,
-      date: "13/09/2025",
-      time: "03:00 PM",
-      venue: "201",
-      special: true,
-      about: "Join us for an inspiring ECE Guest Lecture as we explore how students can rise Beyond the Recession and thrive in the AI Era. This session will highlight the transformative opportunities Artificial Intelligence brings, and the pivotal role of young engineers in shaping an empowered and resilient future.."
-    },
-    {
-      id: "Lecture",
       name: "AI & IOT HANDS-ON WORKSHOP",
       image: ai,
       date: "15/09/2025",
