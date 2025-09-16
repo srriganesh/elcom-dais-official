@@ -35,16 +35,6 @@ const EventsSection = () => {
   } | null>(null);
 
   const events = [
-    {
-      id: "Lecture",
-      name: "AI & IOT HANDS-ON WORKSHOP",
-      image: ai,
-      date: "15/09/2025",
-      time: "02:00 AM",
-      venue: "201",
-      special: true,
-      about: "Join us for an immersive AI & IoT Hands-On Workshop designed to equip you with practical skills in Artificial Intelligence and Internet of Things technologies. This workshop offers a unique opportunity to engage in interactive sessions, real-world projects, and expert-led tutorials that will empower you to innovate and excel in the rapidly evolving tech landscape."
-    },
     { id: "embedded", name: "EMBEDDED Systems", image: embeddedSystemsImg, about: "Dive into the world of Embedded Systems with our hands-on workshops and competitions. Learn to design and program microcontrollers, develop IoT applications, and explore real-time operating systems. Gain practical skills through projects and challenges that prepare you for a career in this dynamic field." },
     { id: "robotics", name: "Robotics", image: roboticsImg, about: "Explore the exciting field of Robotics through our engaging events and competitions. Learn about robot design, programming, and automation technologies. Participate in hands-on workshops and challenges that will enhance your skills and prepare you for a future in robotics engineering." },
     { id: "network", name: "Computer Network", image: computerNetworkImg ,about: "Delve into the fundamentals of Computer Networking with our interactive workshops and competitions. Understand network protocols, architecture, and security through practical sessions and real-world scenarios. Enhance your skills in network design and management, preparing you for a successful career in the IT and networking industry."},
